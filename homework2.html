@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: rgb(254, 254, 254);
+        color: rgb(0, 0, 0); 
+        font-family: Pacifico, cursive;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+    p {
+        font-size: 30px;
+        margin: 20px;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 15px;
+        background-color: rgb(255, 255, 255);
+    }
+    #yesBtn {
+    background-color: green;
+    color: white;
+    }
+    #noBtn {
+    background-color: red;
+    color: white;
+    }
+
+</style>
+
+<body>
+    <p>Я самая лучшая?</p>
+    <div style="display:flex; gap: 40px;">
+    <button id="yesBtn" style="display: inline-block;">Да</button>
+    <button id="noBtn" style="display: inline-block;" onclick="window.location.href='home3.html'">нет</button>
+    </div>
+</body>
+<script>
+    document.getElementById("yesBtn").addEventListener("click", function() {
+        alert("Я тоже так думаю!");
+    });
+
+</script>
+</html>

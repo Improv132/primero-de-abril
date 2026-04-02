@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+body {
+    background-color: rgb(254, 254, 254);
+    color: black;
+    font-family: Pacifico, cursive;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+p {
+    font-size: 30px;
+}
+
+.buttons {
+    display: flex;
+    gap: 40px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#yesBtn {
+    background-color: green;
+    color: white;
+}
+
+#noBtn {
+    background-color: red;
+    color: white;
+    position: relative;
+}
+
+#fakeWindow {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: black;
+    color: lime;
+    padding: 20px;
+    border: 2px solid lime;
+    text-align: center;
+}
+
+#progressBar {
+    width: 300px;
+    height: 20px;
+    background: #333;
+    margin-top: 10px;
+}
+
+#progress {
+    height: 100%;
+    width: 0%;
+    background: lime;
+}
+</style>
+
+<img id="image" src="https://i.pinimg.com/564x/f7/b5/21/f7b5219baf5708abab6021cc1d42d974.jpg" alt="Image" />
+<div>
+    <p>нажми на кнопку</p>
+    <div class="buttons">
+        <button id="yesBtn">нажать</button>
+        <button id="noBtn" >не хочу</button>
+    </div>
+<script>
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", function() {
+    const x = Math.random() * 300 - 150;
+    const y = Math.random() * 300 - 150;
+
+    noBtn.style.transform = `translate(${x}px, ${y}px)`;
+});
+
+
+// Кнопка "Да"
+document.getElementById("yesBtn").addEventListener("click", function() {
+    const windowBox = document.getElementById("fakeWindow");
+    const progress = document.getElementById("progress");
+    const percent = document.getElementById("percent");
+
+    windowBox.style.display = "block";
+
+    let i = 0;
+
+    let interval = setInterval(() => {
+        i++;
+
+        progress.style.width = i + "%";
+        percent.textContent = i + "%";
+
+        if (i >= 100) {
+            clearInterval(interval);
+            percent.textContent = "Готово!";
+        }
+
+    }, 110); // скорость (меньше = быстрее)
+});
+
+
+
+document.getElementById("yesBtn").addEventListener("click", function() {
+    const windowBox = document.getElementById("fakeWindow");
+    const progress = document.getElementById("progress");
+    const percent = document.getElementById("percent");
+
+    windowBox.style.display = "block";
+
+    let i = 0;
+
+    let interval = setInterval(() => {
+        i++;
+
+        progress.style.width = i + "%";
+        percent.textContent = i + "%";
+
+        if (i >= 100) {
+            clearInterval(interval); // останавливаем прогресс-бар
+
+            // ⬇️ после завершения имитации удаление Windows
+            alert("Ладно, я шучу)) С 1 апреля 😄 ^_^");
+        }
+
+    }, 100); // скорость прогресс-бара
+});
+
+</script>
+<div id="fakeWindow">
+    <p>Удаление Windows...</p>
+    <div id="progressBar">
+        <div id="progress"></div>
+    </div>
+    <p id="percent">0%</p>
+</div>
+
+</body>
+</html>
